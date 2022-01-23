@@ -1,13 +1,17 @@
 # INT20H 2022 Hackathon: Qualification round
-Qualification task solution by Team GARCH for INT20H-2022. 2nd place on the private leaderboard with AUC 0.98283.
+Qualification task solution by Team GARCH for INT20H-2022.
 
+Achieved **2nd place** on the private leaderboard with **AUC 0.98283**.
+
+### Task
 Competition could be found by this link: https://www.kaggle.com/c/techuklon-int20h
 
 The task was to predict to build a model that will predict the segment of churn drivers, ie drivers who will stop using the service based on anonymized features over 4 weeks.
 
+### Solution
 Our solution is based on the stacking of several gradient boosting decision trees - we used their prediction as additional features for the final one (you can think about this as some kind of mean target encoding)
 
-### Submissions
+#### Submissions
 Because the task was to predict churn for each Id regardless of time, we used two ways of data preprocessing for LightGBM:
 
 - [**LightGBM: Wide format**](./stacking/lgbm-wide.ipynb) - Unstack over-time features to receive 4 columns from each. Additionally, we created such features as the mean value over weeks, the number of missing values, and the trend (using linear regression), but that didn't help much.
@@ -26,7 +30,7 @@ Because the task was to predict churn for each Id regardless of time, we used tw
 Finally, we concat the out-of-fold predictions of these models to the dataset, and train the same model as in the Wide-format case. \
 Score: **[ROC AUC] public: 0.98278, private: 0.98283** - 2nd place on both leaderboards
 
-### Ideas that didn't work:
+#### Ideas that didn't work:
 - Additional preprocessing: filling nans, replacing zeros with nans, creating feature combinations based on their adjacency in the LightGBM trees
 - Feature selection with [Recursive Feature Elimination](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html)
 - Nearest neighbors features: ratio of each class in nearest k neighbors, average distance for each class members
