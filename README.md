@@ -43,9 +43,9 @@ Score: **[ROC AUC] public: 0.98278, private: 0.98283** - 2nd place on both leade
 Final submission takes place in [`final-model.ipynb`](./final-model.ipynb).
 
 Other submissions could be found in *stacking* folder such as:
-- Catboost: [`int20h-qual-catboost.ipynb`](./stacking/)
+- Catboost: [`int20h-qual-catboost.ipynb`](./stacking/int20h-qual-catboost.ipynb)
 - LightGBM: [`lgbm-wide.ipynb`](./stacking/lgbm-wide.ipynb)
-- LightGBM (Long format): [`lgbm-long.ipynb`](./stacking/lgbm-wide.ipynb)
+- LightGBM (Long format): [`lgbm-long.ipynb`](./stacking/lgbm-long.ipynb)
 
 Additional kernels:
 - Combining of the boosting predictions [`gbdt-stacking-preprocessing.ipynb`](./stacking/gbdt-stacking-preprocessing.ipynb)
